@@ -1,8 +1,9 @@
 import pandas as pd
-import datetime
-from pandas_datareader import data as web
+#import datetime
+#from pandas_datareader import data as web
 import matplotlib.pyplot as plt
 from matplotlib import style
+import numpy as np
 style.use('ggplot')
 
 # start = datetime.datetime(2010, 1, 1)
@@ -25,5 +26,24 @@ web_stat = {
 
 df = pd.DataFrame(web_stat)
 
-print(df)
-print(df.head(4))
+# print(df)
+# print(df.head(4))
+
+##set index to df
+df.set_index('Day', inplace=True)
+print(df.head())
+
+##print specific column
+print(df['Visitors'])
+print(df.Visitors)
+
+##referance multi column
+#print(df[['Visitors','Day']])
+
+
+##convert DataFrame to list
+print(df.Visitors.tolist())
+
+## convert multi list to numpy array
+convert = np.array(df[['Visitors','Bounce Rate']])
+print(convert)
