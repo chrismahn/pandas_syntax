@@ -5,13 +5,25 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 style.use('ggplot')
 
-start = datetime.datetime(2010, 1, 1)
-end = datetime.datetime(2015, 1, 1)
+# start = datetime.datetime(2010, 1, 1)
+# end = datetime.datetime(2015, 1, 1)
+#
+# df = web.DataReader('XOM', 'yahoo', start, end)
+#
+# print(df.head())
+#
+# df['Adj Close'].plot()
+#
+# plt.show()
 
-df = web.DataReader('XOM', 'yahoo', start, end)
 
-print(df.head())
+##converting dict with pd dataframe
+web_stat = {
+    'Day':[1,2,3,4,5,6],
+    'Visitors':[43,53,34,45,64,34],
+    'Bounce Rate':[65,72,62,64,54,66]}
 
-df['Adj Close'].plot()
+df = pd.DataFrame(web_stat)
 
-plt.show()
+print(df)
+print(df.head(4))
